@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <title>Formulario</title>
+</head>
+<body>
+
+    <script>
+      $(document).ready(function(){
+        $("#guardar").on("click", function(){
+          var $nombre = $("#nombre");
+          var $email = $("#email");
+
+          if($nombre.val().length==0){
+            $nombre.addClass("alert-danger");
+            setTimeout(function(){
+              $nombre.removeClass("alert-danger");
+            },3000);
+
+            $("#error").fadeIn(2000).delay(4000).fadeOut(2000);
+          }
+
+          if($email.val().length==0){
+            $email.addClass("alert-danger");
+            setTimeout(function(){
+              $email.removeClass("alert-danger");
+            }, 3000);
+            $("#email").fadeIn(2000).delay(4000).fadeOut(2000);
+          }
+        });
+      });
+    </script>
+      <!-- Modal -->
+      <div class="modal fade" id="mimodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <section class="row container-fluid">
+                    <div class="col-lg-12">
+                     <form>
+                         <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <i class="fa fa-user input-group-text"></i>
+                              </div>
+                              <input type="text" class="form-control" id="nombre">
+                            </div>
+                           
+                            <small class="form-text text-muted"> Pon tu nobre completo</small>
+                            
+                         </div>
+            
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <i class="fa fa-envelope input-group-text"></i>
+                              </div>
+                              <input type="text" class="form-control" id="email">
+                            </div>
+                            
+                            <small class="form-text text-muted"> Ingresa tu correo electronico</small>
+                           <!-- <div class="form-group text-right">
+                                <button class="btn btn-outline-primary btn-block">
+                                    <i class="fas fa-cat"></i>
+                                    Inscribirme
+                                </button> -->
+                                <p class="text-danger" id="error" style="display:none"> Revisa tu nombre o direccion de correo</p>
+            
+                            </div>
+                         </div>
+                     </form>
+                 </div>   
+                </section>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="guardar">
+                        <i class="fas fa-cat"></i>
+                        Guardar
+                    </button>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <button class="btn btn-primary" data-target="#mimodal" data-role="modal" data-toggle="modal">
+        Abrir ventana modal
+    </button>
+</body>
+</html>
